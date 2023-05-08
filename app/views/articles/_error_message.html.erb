@@ -1,0 +1,8 @@
+<% if @article.errors.full_messages.any? %>
+<p style="color:red">These Errors Occured</p>
+<ul>
+<% @article.errors.full_messages.each do |error| %>
+<li style="color:red" ><%= error %></li>
+<%end%>
+</ul>
+<%end%>
