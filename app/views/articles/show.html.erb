@@ -1,0 +1,6 @@
+<p><strong>title: </strong><%= @article.title%> </p>
+<p><strong>Description: </strong><%= @article.description%> </p>
+<%= link_to 'edit' , edit_article_path(@article) %>
+<%= link_to 'delete ', article_path(@article) ,method: :delete , data: {confirm:"Are you Sure to Delete this ?"} %>
+<%= link_to 'see all articles', articles_path %>
+

@@ -1,0 +1,19 @@
+<h3>Create new Article</h3>
+<% if @article.errors.full_messages.any? %>
+<p style="color:red">These Errors Occured</p>
+<ul>
+<% @article.errors.full_messages.each do |error| %>
+<li style="color:red" ><%= error %></li>
+<%end%>
+</ul>
+
+<%end%>
+<%= form_with(model: @article,local:true) do |f| %>
+ <p> <%= f.label :title%> </p>
+<p> <%= f.text_field :title%> </p>
+<p> <%= f.label :description %> </p>
+<p> <%= f.text_area :description %> </p>
+<p> <%= f.submit %> </p>
+<% end %>
+<%= link_to 'see all articles', articles_path %>
+ 

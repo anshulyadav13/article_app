@@ -1,0 +1,39 @@
+<h1>Showing All Articles</h1>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Title:
+            </th>
+            <th>
+                Discription:
+            </th>
+            <th>
+                Action:
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <% @articles.each do |article| %>
+                <tr >
+                    <td>
+                        <%= article.title %>
+                    </td>
+                    <td>
+                        <%= article.description %>
+                    </td>
+                    <td>
+                         <%= link_to 'delete', article_path(article), method: :delete , data: {confirm:"Are you Sure to Delete this ?"} %>
+                    </td>
+                    <td>
+                         <%= link_to 'show', article_path(article) %>
+                    </td>
+                    <td>
+                         <%= link_to 'edit', edit_article_path(article) %>
+                    </td>
+                </tr>
+            <% end %>
+    </tbody>
+</table>
+
+<%= link_to 'Add new Article', new_article_path %>
