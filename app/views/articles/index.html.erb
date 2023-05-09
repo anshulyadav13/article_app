@@ -3,6 +3,9 @@
     <thead>
         <tr>
             <th>
+            Created by:
+            </th>
+            <th >
                 Title:
             </th>
             <th>
@@ -16,6 +19,9 @@
     <tbody>
             <% @articles.each do |article| %>
                 <tr >
+                    <td> 
+                        <%= article.user.user_name %>
+                    </td>
                     <td>
                         <%= article.title %>
                     </td>
