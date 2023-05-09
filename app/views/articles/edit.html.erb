@@ -1,5 +1,5 @@
 <h3>Create new Article</h3>
- <%= render 'error_message' %>
+ <%= render 'shared/error_message',obj:@article %>
 
  <%= render 'form'%>
 <%= link_to 'see all articles', articles_path %>
