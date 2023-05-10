@@ -1,37 +1,7 @@
 <div class="container ">
- <h1 class='text-center mt-2'>Showing All Articles</h1>
-  <div class="row mt-3">
-   <% @articles.each do |article| %>
-        <div class="preview-card col-10 m-auto shadow">
-        <div class="preview-card__wrp">
-            <div class="preview-card__item">
-            <div class="preview-card__img">
-                <%# <img
-                src="https://images.unsplash.com/photo-1600188768149-f27db3bc6ef9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                alt=""
-                /> %>
-                <%=  image_tag 'author',class:"shadow" %>
-            </div>
-            <div class="preview-card__content">
-                <span class="preview-card__code font-italic">Author: <span class="text-capitalize"> <%= article.user.user_name %></span></span>
-                <div class="preview-card__title text-capitalize"><%= article.title %></div>
-                <div class="preview-card__text text-capitalize">
-                <%= article.description %>
-                </div>
-               <%= link_to 'Delete', article_path(article), method: :delete , data: {confirm:"Are you Sure to Delete this ?"},class:"preview-card__button "%>
-              
-               <%= link_to 'Show', article_path(article),class:"preview-card__button  " %>
-               
-                 <%= link_to 'Edit', edit_article_path(article),class:"preview-card__button " %>
-              
-
-            </div>
-            </div>
-        </div>
-        </div>
-   <%end%>
- </div>
+ <h1 class='text-center mt-3'>Showing All Articles</h1>
+    <%= render 'articles_card' %>
  <div class="d-flex justify-content-center">
-<%= link_to 'Create new Article', new_article_path ,class:"preview-card__button shadow  mt-2 text-center create-button"%>
+<%= link_to 'Create new Article', new_article_path ,class:"preview-card__button shadow  mt-2 text-center create-button "%>
 </div>
 </div>

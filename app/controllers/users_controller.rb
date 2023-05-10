@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :get_user , only: [:show,:update,:edit]
     def new
         @user = User.new
     end
@@ -6,7 +7,7 @@ class UsersController < ApplicationController
          @user = User.new(get_url_params)
          if @user.save
             flash[:notice] ="Sucessfully signed Up"
-            redirect_to articles_path
+            redirect_to @user
         else
             render 'new'
          end
@@ -14,26 +15,28 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
-    end
+     end
     def update
-         @user = User.find(params[:id])
-         if @user.update(get_url_params)
-            flash[:notice] ="Profile Successfully Updated"
-            redirect_to articles_path
+          if @user.update(get_url_params)
+            flash[:notice] ="Profile Updated Successfully "
+            redirect_to @user
          else
             render 'edit'
          end
-
-
-         # if User.update(get_url_params)
-
     end
-
+    def show
+        @articles = @user.articles
+    end
+    def index
+        @users = User.all
+    end
 
     private
     def get_url_params
         params.require(:user).permit(:user_name,:email,:password)
-     end
+    end
+    def get_user
+        @user = User.find(params[:id])
+    end
 
 end

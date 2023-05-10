@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <h1  class="text-center mt-3"><%= @user.user_name.capitalize  %>'s  profile</h1>
+    <%= load_profile_image %>
+    
+     <div class="d-flex justify-content-center mt-4">
+        <%= link_to 'Edit Profile', edit_user_path(@user) ,class:"preview-card__button flash-message-bg   " %>
+     </div>
+   <% if @user.articles.any?  %>
+    <h3 class="text-center mt-3 ">All Articles Created by <%=@user.user_name.capitalize%> </h3>
+    <% else %>
+     <h3 class="text-center"> No Article Created </h3>
+    <% end %>
+     <%= render 'articles/articles_card' %>
+
+</div>

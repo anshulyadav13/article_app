@@ -1,9 +1,10 @@
+<div class="p-4">
  
 <%= form_with(model: @article,local:true) do |f| %>
   <div class="form-group ">
      <%= f.label :title ,class:"text-dark"%> 
     
-    <%= f.text_field :title,class:"form-control", placeholder:"enter article title" %>
+    <%= f.text_field :title,class:"form-control ", placeholder:"enter article title" %>
   </div>
   <div class="form-group">
  <%= f.label :description,class:"text-dark" %> 
@@ -18,3 +19,4 @@
   
   
 <% end %>
+</div>
