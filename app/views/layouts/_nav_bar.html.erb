@@ -1,0 +1,33 @@
+<div class="bg-nav">
+ <nav class="navbar navbar-expand-lg navbar-light  container">
+  <a class="navbar-brand" href="/">Articles</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" role="button" data-toggle="dropdown" aria-expanded="false">
+          Article
+        </a>
+        <div class="dropdown-menu bg-dark ">
+          <a class="dropdown-item " href="#"><%= link_to 'Create Article' ,new_article_path , class:"dropdown-item text-light"%></a>
+          <a class="dropdown-item text-light" href="#">Another action</a>
+           
+        </div>
+      </li>
+       
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+       
+       <%= link_to 'Sign Up' ,signup_path ,class:'btn btn-outline-primary  mx-2 '%>  
+     <%= link_to 'Login' ,signup_path ,class:'btn btn-outline-success' %> 
+    </form>
+  </div>
+</nav>
+</div>
