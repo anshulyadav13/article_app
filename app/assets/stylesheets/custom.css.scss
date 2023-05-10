@@ -184,7 +184,7 @@
        background-color: #053f5e;
         padding: 15px 35px;
        margin-bottom: 30px;
-       border-radius: 50px;
+       border-radius: 5px;
        color: $preview-card-button-text;
        box-shadow: $preview-card-button-shadow;
        text-decoration: none;
@@ -194,7 +194,7 @@
        letter-spacing: 1px;
 
        &:hover {
-          color: $preview-card-button-text-hover;
+          color:#ffd700 ;
           text-decoration: none;
        }
 
@@ -223,4 +223,8 @@
    background-color:  #053f5e;
    color: white !important;
  }
- 
+ .create-button{
+   background-color: #ffd700;
+   color: black;
+   // font-weight: bold;
+ }
