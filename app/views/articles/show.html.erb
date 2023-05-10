@@ -1,6 +1,30 @@
-<p><strong>title: </strong><%= @article.title%> </p>
-<p><strong>Description: </strong><%= @article.description%> </p>
-<%= link_to 'edit' , edit_article_path(@article) %>
-<%= link_to 'delete ', article_path(@article) ,method: :delete , data: {confirm:"Are you Sure to Delete this ?"} %>
-<%= link_to 'see all articles', articles_path %>
+ 
+<div class="container mt-5">
+   <div class="row mt-3">
+         <div class="preview-card col-10 m-auto">
+        <div class="preview-card__wrp ">
+            <div class="preview-card__item">
+           
+            <div class="preview-card__content">
+                <span class="preview-card__code font-italic">Author: <span class="text-capitalize"> <%= @article.user.user_name %></span></span>
+                <div class="preview-card__title text-capitalize"><%= @article.title %></div>
+                <div class="preview-card__text text-capitalize">
+                <%= @article.description %>
+                </div>
+               <%= link_to 'Delete', article_path(@article), method: :delete , data: {confirm:"Are you Sure to Delete this ?"},class:"preview-card__button  "%>
+              
+         
+               
+                 <%= link_to 'Edit', edit_article_path(@article),class:"preview-card__button  " %>
+                 <%= link_to 'See All Articles', articles_path ,class:"preview-card__button  " %>
+              <%= link_to 'Create new Article', new_article_path ,class:"preview-card__button    "%>
 
+            </div>
+            </div>
+        </div>
+        </div>
+  </div>
+ <div class="d-flex justify-content-center">
+
+</div>
+</div>

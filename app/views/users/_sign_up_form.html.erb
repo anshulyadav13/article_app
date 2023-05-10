@@ -1,9 +1,25 @@
+ 
 <%= form_with(model: @user,local:true) do |f| %>
- <p> <%= f.label :user_name%> </p>
-<p> <%= f.text_field :user_name%> </p>
-<p> <%= f.label :email %> </p>
-<p> <%= f.text_field :email %> </p>
-<p> <%= f.label :password %> </p>
-<p> <%= f.text_field :password %> </p>
-<p> <%= f.submit %> </p>
+  <div class="form-group ">
+     <%= f.label :user_name,class:"text-dark"%> 
+    
+    <%= f.text_field :user_name,class:"form-control", placeholder:"enter user name"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :email ,class:"text-dark"%> 
+    
+      <%= f.text_field :email,class:"form-control", placeholder:"enter email id" %> 
+  </div>
+  <div class="form-group">
+    <%= f.label :password,class:"text-dark" %> 
+    
+      <%=  f.text_field :password,class:"form-control", placeholder:"enter passowrd" %> 
+  </div>
+ <div class="d-flex justify-content-center"> 
+         <%= f.submit class: 'preview-card__button   mx-2'%>
+ <%= link_to 'See All Articles', articles_path ,class:"preview-card__button  " %>
+</div>
+
+  
+  
 <% end %>
