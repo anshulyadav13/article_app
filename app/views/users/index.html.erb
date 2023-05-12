@@ -2,7 +2,6 @@
   <h1 class='text-center mt-3'>Showing All Authors</h1>
  <div class="row mt-lg-1 mt-5 ">
       <div class="mt-lg-1 mt-3 p-lg-0 p-5"></div> 
- 
    <% @users.each do |user| %>
         <div class="preview-card col-10 mt-3  mx-auto shadow  ">
         <div class="preview-card__wrp">
@@ -12,23 +11,17 @@
             </div>
             <div class="preview-card__content">
                 <span class="preview-card__code font-italic">Name : <span class="text-capitalize"> <%= link_to user.user_name,user %></span></span>
-                <div class="preview-card__title text-capitalize"><%= pluralize(user.articles.count,"article") %></div>
-           
-              
-               <%= link_to 'View Profile', user,class:"preview-card__button  " %>
-               
-                <%= link_to 'Edit', edit_user_path(user),class:"preview-card__button " %>
-
-              
-
-            </div>
-            
+                <div class="preview-card__title text-capitalize"><%= pluralize(user.articles.count,"article") %></div> 
+               <%= link_to 'View Profile', user,class:"preview-card__button  " %> 
+               <% if logged_in? && user==current_user%>    
+                 <%= link_to 'Edit', edit_user_path(user),class:"preview-card__button " %>
+               <% end %>
+            </div> 
             </div>
             <div class="mt-2 text-dark">
                 <span> 
                     <b>Joined  <%= time_ago_in_words(user.created_at) %> ago</b>
-                </span>
-                 
+                </span>            
             </div>
          </div>
         </div>
@@ -37,5 +30,4 @@
  <div class="apple_pagination">
     <%= will_paginate @users, :container => false %>
   </div>
-
   </div>

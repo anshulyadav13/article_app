@@ -1,5 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap';
- .field_with_errors input{
+ .field_with_errors input, .field_with_errors textarea{
     border-color: red;
  }
  @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
@@ -238,7 +238,7 @@
 
   }
 .form-control{
-   height: 50px !important;
+   min-height: 50px !important;
 }
  
  

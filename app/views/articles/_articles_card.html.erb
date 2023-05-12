@@ -1,37 +1,34 @@
  <div class="row mt-2">
    <% @articles.each do |article| %>
         <div class="preview-card col-10 mx-auto  shadow">
-        <div class="preview-card__wrp">
-            <div class="preview-card__item">
-            <div class="preview-card__img">
-                 <%= load_profile_image %>
-            </div>
-            <div class="preview-card__content">
-                <span class="preview-card__code font-italic">Author: <span class="text-capitalize"> <%= link_to article.user.user_name ,article.user %></span></span>
-                <div class="preview-card__title text-capitalize"><%= article.title %></div>
-                <div class="preview-card__text text-capitalize">
-                <%= article.description %>
+            <div class="preview-card__wrp">
+                <div class="preview-card__item">
+                    <div class="preview-card__img">
+                        <%= load_profile_image %>
+                    </div>
+                    <div class="preview-card__content">
+                        <span class="preview-card__code font-italic">Author: <span class="text-capitalize"> <%= link_to article.user.user_name ,article.user %></span></span>
+                        <div class="preview-card__title text-capitalize"><%= article.title %></div>
+                        <div class="preview-card__text text-capitalize">
+                            <%= truncate article.description,length:150 %>
+                        </div>
+                    
+                        <%= link_to 'Show', article_path(article),class:"preview-card__button  " %>
+                        <% if logged_in? && article.user == current_user %>
+                                <%= link_to 'Edit', edit_article_path(article),class:"preview-card__button " %>
+                                <%= link_to 'Delete', article_path(article), method: :delete , data: {confirm:"Are you Sure to Delete this ?"},class:"preview-card__button bg-danger "%>
+                        <% end %>
+                    </div>
                 </div>
-               <%= link_to 'Delete', article_path(article), method: :delete , data: {confirm:"Are you Sure to Delete this ?"},class:"preview-card__button "%>
-              
-               <%= link_to 'Show', article_path(article),class:"preview-card__button  " %>
-               
-                <%= link_to 'Edit', edit_article_path(article),class:"preview-card__button " %>
-
-              
-
+                <div class="mt-2 text-dark">
+                    <span> 
+                        <b>Created at :</b> <%= article.created_at.to_date %>
+                    </span>
+                    <span>
+                        <b>Updated at :</b> <%= article.updated_at.to_date%>
+                    </span>
+                </div>
             </div>
-            
-            </div>
-            <div class="mt-2 text-dark">
-                <span> 
-                    <b>Created at :</b> <%= article.created_at.to_date %>
-                </span>
-                <span>
-                    <b>Updated at :</b> <%= article.updated_at.to_date%>
-                </span>
-            </div>
-         </div>
         </div>
    <%end%>
  </div>
