@@ -11,5 +11,8 @@
      <h3 class="text-center"> No Article Created </h3>
     <% end %>
      <%= render 'articles/articles_card' %>
+     <div class="apple_pagination">
+         <%= will_paginate @articles, :container => false %>
+     </div>
 
 </div>
