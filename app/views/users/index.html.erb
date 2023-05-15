@@ -13,7 +13,7 @@
                 <span class="preview-card__code font-italic">Name : <span class="text-capitalize"> <%= link_to user.user_name,user %></span></span>
                 <div class="preview-card__title text-capitalize"><%= pluralize(user.articles.count,"article") %></div> 
                <%= link_to 'View Profile', user,class:"preview-card__button  " %> 
-               <% if logged_in? && user==current_user%>    
+               <% if logged_in? && (user==current_user || current_user.admin?) %>    
                  <%= link_to 'Edit', edit_user_path(user),class:"preview-card__button " %>
                <% end %>
             </div> 

@@ -12,9 +12,9 @@
                                 </div>
                                 <%= link_to 'See All Articles', articles_path ,class:"preview-card__button  " %>
                                 <%= link_to 'Create new Article', new_article_path ,class:"preview-card__button    "%>
-                                <% if logged_in? && @article.user == current_user %>
+                                <% if logged_in? && (@article.user == current_user  || current_user.admin? ) %>
                                 <%= link_to 'Edit', edit_article_path(@article),class:"preview-card__button  " %>
-                                     <%= link_to 'See Your Articles', all_articles_path ,class:"preview-card__button  " %> 
+                                     <%= link_to 'See Your Articles', all_articles_user_path ,class:"preview-card__button  " %> 
                                      <%= link_to 'Delete', article_path(@article), method: :delete , data: {confirm:"Are you Sure to Delete this ?"},class:"preview-card__button bg-danger "%>
                                 <% end %>
                      </div>

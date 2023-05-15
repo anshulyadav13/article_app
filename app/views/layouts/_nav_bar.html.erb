@@ -1,32 +1,64 @@
 <div class="bg-nav  ">
+
  <nav class="navbar  navbar-expand-lg navbar-light   container">
     <a class="navbar-brand" href="/">Articles</a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
         <ul class="navbar-nav mr-auto">
+
           <li class="nav-item active ">
             <% if logged_in? %>
             <%= link_to 'Create Article' ,new_article_path , class:" nav-link"%> 
             <% end %>
           </li>
+
           <li class="nav-item active">
             <%= link_to 'All Authors' ,users_path , class:" nav-link"%> 
           </li>      
-        </ul>       
+          
+          <li class="nav-item dropdown ">
+
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <% if (logged_in? && current_user.admin)%> 
+                        <%= link_to 'Create Category' ,new_category_path ,class:'dropdown-item   text-dark' %> 
+                     <% end %>
+                     <%= link_to 'View All Category' ,categories_path ,class:'dropdown-item   text-dark' %> 
+                   </div>   
+          </li>
+        </ul>    
+          
+
         <% if logged_in? %>
+           
+
             <ul class="navbar-nav ">
+
                   <li class="nav-item dropdown ">
-                    <%= link_to " [ " +current_user.user_name+ " ] " , user_path(current_user) ,class:"nav-link dropdown-toggle " , id:"navbarDropdown" ,role:"button" ,"data-toggle":"dropdown", 'aria-haspopup':"true" ,'aria-expanded':"false"%>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <%= link_to 'View Profile' ,user_path(current_user.id) ,class:'dropdown-item   text-dark' %> 
-                        <%= link_to 'Edit Profile' ,edit_user_path(current_user.id) ,class:'dropdown-item   text-dark' %> 
-                        <%= link_to 'Delete Account' ,user_path(current_user.id) ,method: :delete ,data: {confirm: "Are You Sure ?"},class:'dropdown-item   text-danger' %> 
-                    </div>
+
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= "(admin)" if current_user.admin? %> <%= "Profile [ " +current_user.user_name+ " ] "%>
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <%= link_to 'View Profile' ,user_path(current_user.id) ,class:'dropdown-item   text-dark' %> 
+                      <%= link_to 'Edit Profile' ,edit_user_path(current_user.id) ,class:'dropdown-item   text-dark' %> 
+                      <%= link_to 'Delete Account' ,user_path(current_user.id) ,method: :delete ,data: {confirm: "Are You Sure ?"},class:'dropdown-item   text-danger' %> 
+                  </div>
+
                 </li>
+
             <%= link_to 'Log Out' ,logout_path ,method: :delete ,class:'btn bg-button mx-1 text-white' %> 
              </ul>
+
         <% else %>
           <%= link_to 'Sign Up' ,signup_path ,class:'btn bg-button text-white mx-1  '%>  
           <%= link_to 'Login' ,login_path ,class:'btn bg-button text-white mx-1' %>

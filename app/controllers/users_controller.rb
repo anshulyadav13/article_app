@@ -32,7 +32,8 @@ class UsersController < ApplicationController
         @users = User.paginate(page: params[:page], per_page: 3)
 
     end
-    def all_articles
+    
+     def all_articles
         if logged_in?
         @articles = current_user.articles.paginate(page: params[:page], per_page: 2)  
         else
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
 
      def destroy
         @user.destroy
-        session[:user_id]=nil
+        session[:user_id]=nil if !current_user.admin? 
         flash[:alert] = 'Account and its related Articles deleted sucessfully'
         redirect_to root_path
      end
@@ -54,8 +55,8 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
     def require_same_user
-        if current_user != @user
-            flash[:alert] = "you can edit your own account"
+        if (current_user != @user)  && (!current_user.admin?) 
+            flash[:alert] = "you can edit or delete your own account"
             redirect_to @user
         end
     end

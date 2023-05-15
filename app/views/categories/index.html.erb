@@ -1,0 +1,22 @@
+<div class="container ">
+ <h1 class='text-center mt-3'>Showing All Categories</h1>
+ <div class=" mt-4">
+   <% @categories.each do |category| %>
+        <div class="preview-card col-4 mx-auto  shadow">
+            <div class="preview-card__wrp ">
+                <div class="preview-card__item">
+                    <span class="preview-card__code font-italic">Name: <span class="text-capitalize"> <%= link_to category.name   %></span></span>
+                </div>
+                <div class=" text-dark">
+                    <span> 
+                        <b>Created at :</b> <%= category.created_at.to_date %>
+                    </span>
+                </div>
+            </div>
+        </div>
+   <%end%>
+ </div>    <div class="apple_pagination">
+      <%= will_paginate @category, :container => false %>
+    </div>
+  
+</div>

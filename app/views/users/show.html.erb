@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <h1  class="text-center mt-3"><%= @user.user_name.capitalize  %>'s  profile</h1>
     <%= load_profile_image %>
-    <% if logged_in? && @user == current_user%>
+    <% if logged_in? && (@user == current_user || current_user.admin?) %>
      <div class="d-flex justify-content-center mt-4">
         <%= link_to 'Edit Profile', edit_user_path(@user) ,class:"preview-card__button flash-message-bg mx-1  " %>
         <%= link_to 'Delete Profile', user_path(@user) ,method: :delete,data: {confirm: "Are you Sure ?"},class:"preview-card__button   bg-danger  " %>
