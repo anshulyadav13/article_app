@@ -15,8 +15,10 @@ class UsersController < ApplicationController
             render 'new'
         end
     end
+
     def edit
     end
+
     def update
           if @user.update(get_url_params)
             flash[:notice] ="Profile Updated Successfully "
@@ -47,13 +49,17 @@ class UsersController < ApplicationController
         flash[:alert] = 'Account and its related Articles deleted sucessfully'
         redirect_to root_path
      end
+
     private
+
     def get_url_params
         params.require(:user).permit(:user_name,:email,:password)
     end
+
     def get_user
         @user = User.find(params[:id])
     end
+    
     def require_same_user
         if (current_user != @user)  && (!current_user.admin?) 
             flash[:alert] = "you can edit or delete your own account"

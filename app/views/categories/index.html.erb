@@ -9,7 +9,7 @@
                 </div>
                 <div class=" text-dark">
                     <span> 
-                        <b>Total :</b> <%= category.articles.count %> <b>Articles</b>
+                        <b>Total :</b> <%= pluralize(category.articles.count,"Article") %>  
                     </span>
                 </div>
                 <%= link_to 'View All Articles' , category_path(category) ,class: "preview-card__button mt-4"%>

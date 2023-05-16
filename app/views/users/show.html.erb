@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-2">
     <h1  class="text-center mt-3"><%= @user.user_name.capitalize  %>'s  profile</h1>
     <%= load_profile_image %>
     <% if logged_in? && (@user == current_user || current_user.admin?) %>

@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     def show
     end
     def edit
-     end
+    end
     def update
          if  @article.update(get_params)
             flash[:notice] = "Article Edited  Sucessfully"
