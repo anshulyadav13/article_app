@@ -1,3 +1,7 @@
-<div class="container mt-5">
-    <h1  class="text-center mt-3"><%= @category.name  %></h1>
+<div class="container mt-2">
+    <h1  class="text-center mt-3">All Articles In <%= @category.name  %> Category</h1>
+     <%= render 'articles/articles_card' %>
+     <div class="apple_pagination">
+         <%= will_paginate @articles, :container => false %>
+     </div>
 </div>

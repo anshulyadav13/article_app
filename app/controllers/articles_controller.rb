@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        @article = Article.new(get_params);
+         @article = Article.new(get_params);
         @article.user = current_user
         if @article.save
             flash[:notice] = "Article  Saved !"
@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
      end
 
      def get_params
-        params.require(:article).permit(:title,:description)
+        params.require(:article).permit(:title,:description,category_ids: [])
      end
      def require_same_user
         if (@article.user != current_user)  && !current_user.admin? 

@@ -1,17 +1,24 @@
 <div class="container ">
  <h1 class='text-center mt-3'>Showing All Categories</h1>
- <div class=" mt-4">
+ <div class="row mt-4">
    <% @categories.each do |category| %>
-        <div class="preview-card col-4 mx-auto  shadow">
+        <div class="preview-card col-5 mx-auto  shadow">
             <div class="preview-card__wrp ">
                 <div class="preview-card__item">
-                    <span class="preview-card__code font-italic">Name: <span class="text-capitalize"> <%= link_to category.name   %></span></span>
+                    <span class="preview-card__code font-italic">Name: <span class="text-capitalize"> <%= link_to category.name , category_path(category)   %></span></span>
                 </div>
                 <div class=" text-dark">
+                    <span> 
+                        <b>Total :</b> <%= category.articles.count %> <b>Articles</b>
+                    </span>
+                </div>
+                <%= link_to 'View All Articles' , category_path(category) ,class: "preview-card__button mt-4"%>
+                 <div class=" text-dark">
                     <span> 
                         <b>Created at :</b> <%= category.created_at.to_date %>
                     </span>
                 </div>
+
             </div>
         </div>
    <%end%>

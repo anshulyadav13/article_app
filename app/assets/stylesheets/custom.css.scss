@@ -35,7 +35,7 @@
     background: #F7F1E5;
     box-shadow: $preview-card-shadow;
     padding: 20px 25px 20px;
-    border-radius: $preview-card-border-radius;
+    border-radius: 12px;
     //height: 400px;
     transition: all 0.3s;
 
@@ -254,10 +254,13 @@
 .apple_pagination a,
 .apple_pagination span {
    padding: 0.2em 0.3em;
+   padding: 4px;
+   background: #ffd700;
+    border-radius: 4px;
 }
 
 .apple_pagination .disabled {
-   color: #aaaaaa;
+   color: #053f5e;
 }
 
 .apple_pagination .current {
@@ -277,11 +280,22 @@
 
 .apple_pagination a {
    text-decoration: none;
-   color: #ffd700;
-   font-size: 18px;
+    font-size: 18px;
+   padding: 4px 7px;
+   color: black;
 }
 
 .apple_pagination a:hover,
 .apple_pagination a:focus {
-   color: #F7F1E5;
+   color: #053f5e;
+   background-color: #F7F1E5;
+}
+.badge{
+   background-color: #053f5e !important;
+   color: white;
+   padding: 5px;
+}
+
+.badge:hover{
+   color: #ffd700;
 }

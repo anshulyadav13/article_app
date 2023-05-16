@@ -5,7 +5,13 @@
             <div class="preview-card__wrp ">
                 <div class="preview-card__item">
                       <div class="preview-card__content">
-                                <span class="preview-card__code font-italic">Author: <span class="text-capitalize"> <%= link_to @article.user.user_name , @article.user %></span></span>
+                                 <span class="preview-card__code font-italic">Author: <span class="text-capitalize"> <%= link_to @article.user.user_name , @article.user %></span>
+                                    <span class='float-right'> 
+                                        <% if @article.categories.any? %>
+                                            <%= render @article.categories %>
+                                        <% end %>
+                                    </span>
+                                </span>
                                 <div class="preview-card__title text-capitalize"><%= @article.title %></div>
                                 <div class="preview-card__text text-capitalize">
                                      <%= @article.description %>
